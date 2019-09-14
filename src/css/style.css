@@ -11,13 +11,6 @@ body {
   background-image: linear-gradient(#f7f7f7, #e5e5e5);
 }
 
-header {
-  font-family: "Lobster", cursive;
-  background-image: url("../images/background-header.jpg");
-  background-position: center;
-  height: 200px;
-  position: relative;
-}
 header h1 {
   font-size: 4.5rem;
   color: #fff;
@@ -114,7 +107,7 @@ a:hover {
 .landing-page {
   height: 100vh;
   width: 100%;
-  background-image: url("../images/landing.jpg");
+  background-image: url("../images/landing.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0px -125px;
@@ -234,16 +227,18 @@ input[type="number"]::-webkit-outer-spin-button {
 .media-card-text {
   margin: auto;
 }
-
-@media screen and (max-width: 760px) {
-  .table-responsive {
-    display: block;
-  }
+.nav-child h1 a {
+  color: #d1d1d1;
 }
 
 /*=========================================================
                   HOME PAGE
   =========================================================*/
+.dashboard {
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-position: 61px -42px;
+}
 .sidenav {
   height: 100%;
   width: 160px;

@@ -3,10 +3,6 @@ import Button from "../Resuable/Button";
 import { Link } from "react-router-dom";
 import "../../scripts/scripts";
 
-function handleJoinUs() {
-  console.log("CLicked Handle Join Us");
-}
-
 class Navigation extends React.Component {
   render() {
     const listItem = this.props.navList.map((data, index) => {

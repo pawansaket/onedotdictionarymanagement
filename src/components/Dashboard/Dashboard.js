@@ -9,36 +9,6 @@ import { finalDictionaryCreation } from "../../actions/dictionaryActions";
 import { connect } from "react-redux";
 import { withRouter } from "react-router";
 
-const data = {
-  dictionaryData: [
-    {
-      domain: "Dark Grey",
-      range: "Mystic Silver"
-    },
-    {
-      domain: "midnigth blue",
-      range: "Dark Blue"
-    }
-  ],
-  displayCustomer: [
-    {
-      product_name: "Apple iPhone 6s",
-      color: "Grey",
-      price: "CHF 769"
-    },
-    {
-      product_name: "Samsung Galaxy S8",
-      color: "Black",
-      price: "CHF 569"
-    },
-    {
-      product_name: "Huawei P9",
-      color: "Silver",
-      price: "CHF 272"
-    }
-  ]
-};
-
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +27,7 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="dashboard">
         <SideNav
           sideNavList={[
             { item: "dashboard", icon: "fas fa-tachometer-alt" },
