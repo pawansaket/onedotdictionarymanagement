@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "Donald Trump",
+      "password": "management1234",
+      "email": "donald@onedot.com",
+      "avatar": "donald.jpeg"
+    },
+    {
+      "id": 2,
+      "username": "katrina Kaif",
+      "password": "manaagement5678",
+      "email": "katrina@onedot.com",
+      "avatar": "katrina"
+    }
+  ],
+  "products": [
+    {
+      "id": "od-1",
+      "userId": 1,
+      "product_name": "Apple iPhone 6s",
+      "domain": "Stonegrey",
+      "price": "CHF 769",
+      "image": "iphone.jpg"
+    },
+    {
+      "id": "od-2",
+      "userId": 1,
+      "product_name": "Samsung Galaxy S8",
+      "domain": "Midnight Black",
+      "price": "CHF 569",
+      "image": "samsung.jpg"
+    },
+    {
+      "id": "od-3",
+      "userId": 1,
+      "product_name": "Huawei P9",
+      "domain": "Mystic Silver",
+      "price": "CHF 272",
+      "image": "huwaie.jpg"
+    },
+    {
+      "id": "od-4",
+      "userId": 2,
+      "product_name": "Apple iPhone 6s",
+      "domain": "carebbean sea",
+      "price": "CHF 456",
+      "image": "iphone.jpg"
+    },
+    {
+      "id": "od-5",
+      "userId": 2,
+      "product_name": "Samsung Galaxy S10",
+      "domain": "midnigth blue",
+      "price": "CHF 534",
+      "image": "samsung.jpg"
+    },
+    {
+      "id": "od-6",
+      "userId": 2,
+      "product_name": "Huawei P7",
+      "domain": "golden viper",
+      "price": "CHF 987",
+      "image": "huwaie.jpg"
+    }
+  ],
+  "colors": [
+    "Stonegrey",
+    "Midnight Black",
+    "Mystic Silver",
+    "Caribbean Sea",
+    "Midnight Blue",
+    "Dark Grey",
+    "Black",
+    "Silver",
+    "Turquoise",
+    "Anthracite",
+    "Dark Blue"
+  ],
+  "dictionary": [
+    {
+      "userId": 1,
+      "product_name": "Samsung Galaxy S8",
+      "domain": "Black",
+      "price": "CHF 569",
+      "range": "Stonegrey",
+      "message": "Chains - Domian and Ranges forming a chain",
+      "status": "danger",
+      "image": "samsung.jpg",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "product_name": "Samsung Galaxy S8",
+      "domain": "Caribbean Sea",
+      "price": "CHF 569",
+      "range": "Mystic Silver",
+      "message": "Valid Dictionary",
+      "status": "valid",
+      "image": "samsung.jpg",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "product_name": "Apple iPhone 6s",
+      "domain": "Stonegrey",
+      "price": "CHF 769",
+      "image": "iphone.jpg",
+      "range": "Midnight Blue",
+      "message": "Valid Dictionary",
+      "status": "valid",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "product_name": "Apple iPhone 6s",
+      "domain": "Stonegrey",
+      "price": "CHF 769",
+      "image": "iphone.jpg",
+      "range": "Midnight Blue",
+      "message": "Duplicate - Duplicate Domain - Range pair",
+      "status": "warning",
+      "id": 8
+    }
+  ]
+}
