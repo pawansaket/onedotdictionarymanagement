@@ -15,21 +15,16 @@ class InputBox extends React.Component {
           value={this.props.value}
           disabled={this.props.disabledMode}
         />
-        {this.props.error && (
-          <small id="error" class="form-text text-muted">
-            {this.props.error}
-          </small>
-        )}
       </div>
     );
   }
 }
 
-// InputBox.propTypes = {
-//   type: PropTypes.string.isRequired,
-//   placeholder: PropTypes.string.isRequired,
-//   handleChange: PropTypes.func.isRequired,
-//   name: PropTypes.string.isRequired
-// };
+InputBox.propTypes = {
+  type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
+};
 
 export default InputBox;

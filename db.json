@@ -85,9 +85,9 @@
       "domain": "Stonegrey",
       "price": "CHF 769",
       "image": "iphone.jpg",
-      "range": "Dark Grey",
-      "message": "Valid Dictionary",
-      "status": "valid",
+      "range": "Caribbean Sea",
+      "message": "Forks - Duplicate Domains with different Ranges",
+      "status": "danger",
       "id": 1
     },
     {
@@ -144,6 +144,28 @@
       "message": "Cycles - Domian and Ranges forming a cycle",
       "status": "danger",
       "id": 6
+    },
+    {
+      "userId": 1,
+      "product_name": "Samsung Galaxy S8",
+      "domain": "Midnight Black",
+      "price": "CHF 569",
+      "image": "samsung.jpg",
+      "range": "Turquoise",
+      "message": "Valid Dictionary",
+      "status": "valid",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "product_name": "Huawei P9",
+      "domain": "Mystic Silver",
+      "price": "CHF 272",
+      "image": "huwaie.jpg",
+      "range": "Dark Grey",
+      "message": "Forks - Duplicate Domains with different Ranges",
+      "status": "danger",
+      "id": 8
     }
   ]
 }

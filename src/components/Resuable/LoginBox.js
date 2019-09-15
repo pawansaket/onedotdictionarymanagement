@@ -19,7 +19,6 @@ class LoginBox extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("NEXT_RPOS", nextProps);
     if (nextProps.auth != undefined) {
       if (nextProps.auth.isAuthenticated) {
         this.props.history.push("/dashboard");
@@ -30,7 +29,6 @@ class LoginBox extends Component {
     }
   }
   handleOnChange(e) {
-    console.log("ER", [e.target.name], e.target.value);
     this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -40,7 +38,6 @@ class LoginBox extends Component {
         email: this.state.email,
         password: this.state.password
       };
-      console.log("loginData", data);
       this.props.login(data);
     } else {
       this.setState({ errors: "Fields can't be blank", isInvalid: true });
@@ -53,9 +50,7 @@ class LoginBox extends Component {
         <div className="signup-box-child">
           <span>
             <h4>
-              <a href className="singup-box-active">
-                SignIn
-              </a>
+              <span className="singup-box-active">SignIn</span>
             </h4>
           </span>
         </div>

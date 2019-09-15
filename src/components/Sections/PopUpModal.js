@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "../Resuable/Modal";
 import InputBox from "../Resuable/InputBox";
 import SelectMenu from "../Resuable/SelectMenu";
+import PropTypes from "prop-types";
 import {
   fetchUserProductDetails,
   fetchColorsRange
@@ -20,23 +21,32 @@ class PopUpModal extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+
   componentDidMount() {
-    this.props.fetchUserProductDetails(1);
+    if (localStorage.userDetail) {
+      const user = JSON.parse(localStorage.userDetail);
+      this.props.fetchUserProductDetails(user.id);
+    }
     this.props.fetchColorsRange();
   }
+
+  //Hanlde the changes to the fields
   handleChange(e) {
+    //check current product selected
     let currentTemp = this.props.userProducts.filter((data, index) => {
       if (data.product_name === e.target.value) {
         return true;
       }
       return false;
     })[0];
+
+    //initialize the current product to get its value from edit and create mode
     const initialData = this.state.useEditData
       ? this.props.currentDictionary
       : this.state.currentProduct;
     currentTemp = currentTemp != undefined ? currentTemp : initialData;
     currentTemp[[e.target.name]] = e.target.value;
-    console.log("currentTEmp", currentTemp);
+
     this.setState({
       currentProduct: currentTemp,
       useEditData: false,
@@ -44,24 +54,23 @@ class PopUpModal extends React.Component {
       validationError: false
     });
   }
+  //Clicking to create or edit dictionary
   handleClick(e) {
     e.preventDefault();
+    //Using json parse to prevent from reference copying error
     const sendData = JSON.parse(JSON.stringify(this.state.currentProduct));
     if (this.props.identity === "createDictionary") {
       delete sendData.id;
     }
 
-    console.log("VALIDATE DATA", sendData);
     if (
       sendData.product_name != undefined &&
       sendData.price != undefined &&
       sendData.domain != undefined &&
       sendData.range != undefined
     ) {
-      console.log("CALLING");
       this.props.handleButtonClick(sendData);
     } else {
-      console.log("SendData", JSON.parse(JSON.stringify(sendData)));
       this.setState({ validationError: true });
     }
   }
@@ -71,6 +80,8 @@ class PopUpModal extends React.Component {
     const { userProducts, colors } = this.props;
     let createSelectMenuList = [];
     let colorList = [];
+    let disableProductSelection = false;
+
     //Creating product menu list
     if (userProducts != undefined) {
       for (let i = 0; i < userProducts.length; i++) {
@@ -91,12 +102,17 @@ class PopUpModal extends React.Component {
       };
     }
 
+    //This checks the details for the edit mode setting
     if (Object.keys(this.props.currentDictionary).length > 0 && useEditData) {
       currentProduct = this.props.currentDictionary;
-      disabledMode = false;
     }
 
-    console.log("currentDictionary", currentProduct);
+    //chekch if edit mode
+    if (this.props.identity === "editDictionary") {
+      disabledMode = false;
+      disableProductSelection = true;
+    }
+
     return (
       <div className="row">
         <div className="col-md-12">
@@ -119,6 +135,7 @@ class PopUpModal extends React.Component {
                     name="product_name"
                     selectMenuCustomClass={"child-contanier-modal"}
                     value={currentProduct.product_name}
+                    disabledMode={disableProductSelection}
                   />
                 </div>
               </div>
@@ -173,6 +190,15 @@ class PopUpModal extends React.Component {
     );
   }
 }
+
+PopUpModal.propTypes = {
+  modalTitle: PropTypes.string.isRequired,
+  handleButtonClick: PropTypes.func.isRequired,
+  identity: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  fetchUserProductDetails: PropTypes.func.isRequired,
+  fetchColorsRange: PropTypes.func.isRequired
+};
 
 const mapStateToProps = state => ({
   userProducts: state.dictionary.userProducts,

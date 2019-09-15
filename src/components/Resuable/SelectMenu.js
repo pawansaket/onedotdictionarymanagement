@@ -10,7 +10,7 @@ class SelectMenu extends React.Component {
   render() {
     const optionItem = this.props.itemList.map((data, index) => {
       return (
-        <option value={data} keys={"options" + index + data}>
+        <option value={data} key={"options" + index + data}>
           {data}
         </option>
       );
@@ -31,11 +31,10 @@ class SelectMenu extends React.Component {
   }
 }
 
-// SelectMenu.propTypes = {
-//   itemList: PropTypes.array.isRequired,
-//   handleChange: PropTypes.func.isRequired,
-//   name: PropTypes.string.isRequired,
-// default:PropTypes.string.isRequired
-// };
+SelectMenu.propTypes = {
+  itemList: PropTypes.array.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired
+};
 
 export default SelectMenu;

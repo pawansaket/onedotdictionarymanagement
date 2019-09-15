@@ -35,16 +35,16 @@ class SideNav extends React.Component {
     }
     const sideNavList = this.props.sideNavList.map((data, index) => {
       return (
-        <li keys={"sideNamv" + data + index}>
+        <li key={"sideNamv" + data.item}>
           <i className={data.icon} />
-          <Link to={"/" + data.item}>
+          <Link to={"/dashboard"}>
             <span>{data.item}</span>
           </Link>
         </li>
       );
     });
     return (
-      <div class="sidenav">
+      <div className="sidenav">
         <ul>
           <li className="user-image">
             {user.avatar != undefined ? (

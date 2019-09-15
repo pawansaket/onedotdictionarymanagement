@@ -3,6 +3,7 @@ import Button from "../Resuable/Button";
 import PopUpModal from "./PopUpModal";
 import { createOrUpdateDictionary } from "../../actions/dictionaryActions";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import $ from "jquery";
 
 class CreateDictionary extends React.Component {
@@ -44,10 +45,11 @@ class CreateDictionary extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({
-  userProducts: state.dictionary.userProducts,
-  colors: state.dictionary.colors
-});
+CreateDictionary.propTypes = {
+  createOrUpdateDictionary: PropTypes.func.isRequired
+};
+
+const mapStateToProps = state => ({});
 
 export default connect(
   mapStateToProps,

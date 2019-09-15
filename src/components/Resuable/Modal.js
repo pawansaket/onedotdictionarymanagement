@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import PropTypes from "prop-types";
 
 class Modal extends React.Component {
   render() {
@@ -54,5 +55,11 @@ class Modal extends React.Component {
     );
   }
 }
+
+Modal.propTypes = {
+  id: PropTypes.string.isRequired,
+  buttonName: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired
+};
 
 export default Modal;

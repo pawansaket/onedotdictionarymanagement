@@ -1,6 +1,6 @@
 import React from "react";
 import CreateDictionary from "../Sections/CreateDictionary";
-import UpdateDraftDictionary from "../Sections/UpdateDraftDictionary";
+import DisplayOrUpdateDictionary from "../Sections/DisplayOrUpdateDictionary";
 import PreviewDicitonary from "../Sections/PreviewDictionary";
 import Footer from "../Layout/Footer";
 import SideNav from "../Layout/SideNav";
@@ -28,7 +28,7 @@ class Dashboard extends React.Component {
           ]}
         />
 
-        <div class="main">
+        <div className="main">
           <h3 className="dm-title">Dicitionary Management</h3>
           <div className="row">
             <div className="col-md-2">
@@ -38,7 +38,7 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <CreateDictionary />
-          <UpdateDraftDictionary />
+          <DisplayOrUpdateDictionary />
           <PreviewDicitonary />
         </div>
         <Footer />

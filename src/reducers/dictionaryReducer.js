@@ -1,9 +1,7 @@
 import {
   GET_USER_PRODUCT_DETAILS,
-  GET_USER_DICTIONARY_DETAILS,
   GET_COLORS,
-  FETCH_DRAFT_DICTIONARY_LIST,
-  SAVE_DICTIONARY_SUCCESS
+  FETCH_DRAFT_DICTIONARY_LIST
 } from "../actions/types.js";
 
 const initialState = {
@@ -22,11 +20,6 @@ export default function(state = initialState, action) {
         userProducts: action.payload,
         ...state.userProduct
       };
-    case GET_USER_DICTIONARY_DETAILS:
-      return {
-        ...state,
-        userDictionary: action.payload
-      };
     case GET_COLORS:
       return {
         ...state,
@@ -39,11 +32,6 @@ export default function(state = initialState, action) {
         ...state.draftDictionary
       };
 
-    case SAVE_DICTIONARY_SUCCESS:
-      return {
-        ...state,
-        dictionarySuccess: action.payload
-      };
     default:
       return false;
   }

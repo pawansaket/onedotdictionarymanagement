@@ -13,8 +13,8 @@ class PreviewDicitonary extends React.Component {
     let previewTableData = [];
     const customerTableDataKeys = ["product_name", "range", "price"];
     let customerTableData = [];
+
     if (draftDictionary != undefined) {
-      console.log("DraftDicitionar==========>", draftDictionary);
       if (draftDictionary.length > 0) {
         for (let i = 0; i < draftDictionary.length; i++) {
           if (draftDictionary[i].status !== "danger") {
@@ -26,10 +26,11 @@ class PreviewDicitonary extends React.Component {
         previewTableData = [{}];
       }
     }
+
     return (
-      <div className="row">
+      <div className="row mt-top-10">
         <div className="col-md-4">
-          <h5>Dicitonary Preview</h5>
+          <h5>Valid Dicitonary Preview</h5>
           <Table
             tableIdentity="dictionaryPreview"
             tableData={previewTableData}

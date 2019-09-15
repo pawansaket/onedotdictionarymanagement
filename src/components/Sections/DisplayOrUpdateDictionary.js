@@ -7,9 +7,10 @@ import {
   deleteDraftDictionaryList
 } from "../../actions/dictionaryActions";
 import PopUpModal from "./PopUpModal";
+import PropTypes from "prop-types";
 import $ from "jquery";
 
-class UpdateDraftDictionary extends React.Component {
+class DisplayOrUpdateDictionary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,11 +24,14 @@ class UpdateDraftDictionary extends React.Component {
     this.creatTableData = this.creatTableData.bind(this);
   }
 
+  //Handle modal button click to update dictionary on edit mode
   handleButtonClick(data) {
     data["userMode"] = "edit";
     this.props.createOrUpdateDictionary(data);
     $("#editDictionary").modal("hide");
   }
+
+  //Pop up the modal with the current product id passed from table edit button
   handleClickModalPop(id) {
     $("#editDictionary").modal("show");
     const currentData = this.props.draftDictionary.filter((data, index) => {
@@ -37,19 +41,30 @@ class UpdateDraftDictionary extends React.Component {
       return false;
     });
     this.setState({ currentDictionary: currentData[0] });
-    // you code
-  }
-  handleClickDictionaryDelete(id) {
-    let data = {
-      userId: 1,
-      id: id
-    };
-    this.props.deleteDraftDictionaryList(data);
-  }
-  componentDidMount() {
-    this.props.fetchDraftDictionaryList(1);
   }
 
+  //Delete the dictionary with id supplied from table delete button
+  handleClickDictionaryDelete(id) {
+    if (localStorage.userDetail) {
+      const user = JSON.parse(localStorage.userDetail);
+
+      let data = {
+        userId: user.id,
+        id: id
+      };
+      this.props.deleteDraftDictionaryList(data);
+    }
+  }
+
+  //Fetch the current user dictionary list
+  componentDidMount() {
+    if (localStorage.userDetail) {
+      const user = JSON.parse(localStorage.userDetail);
+      this.props.fetchDraftDictionaryList(user.id);
+    }
+  }
+
+  //Function to create table data with html conent to display on table
   creatTableData(tableData) {
     let afterTable = tableData.slice();
     for (let i = 0; i < afterTable.length; i++) {
@@ -74,13 +89,16 @@ class UpdateDraftDictionary extends React.Component {
     }
     return afterTable;
   }
+
   render() {
     const { draftDictionary } = this.props;
     const { currentDictionary } = this.state;
-    console.log("DRAFT DICTIONARY BEFORE+++++", draftDictionary);
     let tableData = [];
     let currentTempData = {};
     let tableDataKeys = {};
+
+    //Assigning data based on whether data is present or not
+    //Then create the table uisng function and delete unwanted keys to be displayed
     if (draftDictionary != undefined) {
       tableData =
         draftDictionary.length > 0
@@ -95,10 +113,11 @@ class UpdateDraftDictionary extends React.Component {
       delete tableDataKeys.image;
     }
 
+    //Passing the current dicitonary selected on edit mode
     if (currentDictionary != undefined) {
       currentTempData = currentDictionary;
     }
-    console.log("DRAFT DICTIONARY AFTER+++++", draftDictionary);
+
     return (
       <div className="row">
         <PopUpModal
@@ -124,6 +143,12 @@ class UpdateDraftDictionary extends React.Component {
   }
 }
 
+DisplayOrUpdateDictionary.propTypes = {
+  fetchDraftDictionaryList: PropTypes.func.isRequired,
+  createOrUpdateDictionary: PropTypes.func.isRequired,
+  deleteDraftDictionaryList: PropTypes.func.isRequired
+};
+
 const mapStateToProps = state => ({
   draftDictionary: state.dictionary.draftDictionary
 });
@@ -134,4 +159,4 @@ export default connect(
     createOrUpdateDictionary,
     deleteDraftDictionaryList
   }
-)(UpdateDraftDictionary);
+)(DisplayOrUpdateDictionary);

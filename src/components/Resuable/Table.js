@@ -14,7 +14,7 @@ class Table extends React.Component {
       return (
         <th
           scope="col"
-          keys={"tablehead" + index + new Date().getMilliseconds()}
+          key={"tablehead" + index + new Date().getMilliseconds()}
         >
           {data
             .split("_")
@@ -26,16 +26,16 @@ class Table extends React.Component {
 
     const tableData = this.props.tableData.map((data, index) => {
       return (
-        <tr keys={"data-table-inner" + index}>
+        <tr key={"data-table-inner" + index}>
           {this.props.tableHead.map((innerData, innerIndex) => {
             return (
               <td
-                keys={"innerdata" + innerIndex + new Date().getMilliseconds()}
+                key={"innerdata" + innerIndex + new Date().getMilliseconds()}
                 dangerouslySetInnerHTML={{ __html: data[innerData] }}
               ></td>
             );
           })}
-          {this.props.tableIdentity === "dictionaryDetails" ? (
+          {this.props.tableIdentity === "dictionaryDetails" && (
             <td
               keys={"createActionColumn" + index}
               className="action-container"
@@ -59,8 +59,6 @@ class Table extends React.Component {
                 <i className="fas fa-trash-alt action-icon"></i>
               </a>
             </td>
-          ) : (
-            ""
           )}
         </tr>
       );
@@ -71,10 +69,8 @@ class Table extends React.Component {
         <thead>
           <tr>
             {tableHead}
-            {this.props.tableIdentity === "dictionaryDetails" ? (
+            {this.props.tableIdentity === "dictionaryDetails" && (
               <th>ACTIONS</th>
-            ) : (
-              <th></th>
             )}
           </tr>
         </thead>
@@ -86,7 +82,8 @@ class Table extends React.Component {
 
 Table.propTypes = {
   tableData: PropTypes.array.isRequired,
-  tableHead: PropTypes.array.isRequired
+  tableHead: PropTypes.array.isRequired,
+  tableIdentity: PropTypes.string.isRequired
 };
 
 export default Table;

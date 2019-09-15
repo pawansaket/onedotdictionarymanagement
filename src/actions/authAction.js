@@ -1,6 +1,6 @@
 import Axios from "axios";
 
-import { AUTHENTICATE_USER, SET_CURRENT_USER, LOGOUT_USER } from "./types";
+import { AUTHENTICATE_USER, LOGOUT_USER } from "./types";
 
 //Fetching the user dictionary details
 const headers = {
@@ -37,7 +37,6 @@ export const login = data => dispatch => {
           };
         }
       }
-      console.log("RESUTERN", returnData);
       dispatch({
         type: AUTHENTICATE_USER,
         payload: returnData
@@ -46,11 +45,4 @@ export const login = data => dispatch => {
     .catch(err => {
       console.log(err);
     });
-};
-
-export const setCurrentUser = userDetail => {
-  return {
-    type: SET_CURRENT_USER,
-    payload: userDetail
-  };
 };

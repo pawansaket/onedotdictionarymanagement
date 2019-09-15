@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Resuable/Button";
 import { Link } from "react-router-dom";
-import "../../scripts/scripts";
+import PropTypes from "prop-types";
 
 class Navigation extends React.Component {
   render() {
@@ -33,5 +33,7 @@ class Navigation extends React.Component {
     );
   }
 }
-
+Navigation.propTypes = {
+  navList: PropTypes.array.isRequired
+};
 export default Navigation;
