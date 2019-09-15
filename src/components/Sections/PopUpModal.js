@@ -14,7 +14,8 @@ class PopUpModal extends React.Component {
     this.state = {
       currentProduct: {},
       useEditData: true,
-      validationError: false
+      validationError: false,
+      disabledMode: true
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -38,7 +39,9 @@ class PopUpModal extends React.Component {
     console.log("currentTEmp", currentTemp);
     this.setState({
       currentProduct: currentTemp,
-      useEditData: false
+      useEditData: false,
+      disabledMode: false,
+      validationError: false
     });
   }
   handleClick(e) {
@@ -55,14 +58,16 @@ class PopUpModal extends React.Component {
       sendData.domain != undefined &&
       sendData.range != undefined
     ) {
+      console.log("CALLING");
       this.props.handleButtonClick(sendData);
     } else {
+      console.log("SendData", JSON.parse(JSON.stringify(sendData)));
       this.setState({ validationError: true });
     }
   }
 
   render() {
-    let { currentProduct, useEditData } = this.state;
+    let { currentProduct, useEditData, disabledMode } = this.state;
     const { userProducts, colors } = this.props;
     let createSelectMenuList = [];
     let colorList = [];
@@ -88,6 +93,7 @@ class PopUpModal extends React.Component {
 
     if (Object.keys(this.props.currentDictionary).length > 0 && useEditData) {
       currentProduct = this.props.currentDictionary;
+      disabledMode = false;
     }
 
     console.log("currentDictionary", currentProduct);
@@ -126,6 +132,7 @@ class PopUpModal extends React.Component {
                     handleChange={this.handleChange}
                     customInputBoxClass={"child-contanier-modal"}
                     name="price"
+                    disabledMode={disabledMode}
                   />
                 </div>
               </div>
@@ -140,6 +147,7 @@ class PopUpModal extends React.Component {
                     name="domain"
                     selectMenuCustomClass={"child-contanier-modal"}
                     value={currentProduct.domain}
+                    disabledMode={disabledMode}
                   />
                 </div>
               </div>
@@ -154,6 +162,7 @@ class PopUpModal extends React.Component {
                     name="range"
                     selectMenuCustomClass={"child-contanier-modal"}
                     value={currentProduct.range}
+                    disabledMode={disabledMode}
                   />
                 </div>
               </div>

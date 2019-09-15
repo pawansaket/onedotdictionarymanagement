@@ -26,6 +26,7 @@ class UpdateDraftDictionary extends React.Component {
   handleButtonClick(data) {
     data["userMode"] = "edit";
     this.props.createOrUpdateDictionary(data);
+    $("#editDictionary").modal("hide");
   }
   handleClickModalPop(id) {
     $("#editDictionary").modal("show");

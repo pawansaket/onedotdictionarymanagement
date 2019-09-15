@@ -7,14 +7,13 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import { hot } from "react-hot-loader";
-import { syncHistoryWithStore, routerReducer } from "react-router-redux";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Landing from "./components/Layout/Landing";
+
 import store from "./store";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
 import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
-// import "./css/style.css";
 import "./css/style.less";
 
 class App extends React.Component {

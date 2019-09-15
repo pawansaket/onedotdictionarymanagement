@@ -81,58 +81,69 @@
   "dictionary": [
     {
       "userId": 1,
+      "product_name": "Apple iPhone 6s",
+      "domain": "Stonegrey",
+      "price": "CHF 769",
+      "image": "iphone.jpg",
+      "range": "Dark Grey",
+      "message": "Valid Dictionary",
+      "status": "valid",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "product_name": "Apple iPhone 6s",
+      "domain": "Caribbean Sea",
+      "price": "CHF 769",
+      "image": "iphone.jpg",
+      "range": "Midnight Blue",
+      "message": "Valid Dictionary",
+      "status": "valid",
+      "id": 2
+    },
+    {
+      "userId": 1,
       "product_name": "Samsung Galaxy S8",
-      "domain": "Black",
+      "domain": "Stonegrey",
       "price": "CHF 569",
-      "range": "Stonegrey",
-      "message": "Chains - Domian and Ranges forming a chain",
-      "status": "danger",
       "image": "samsung.jpg",
+      "range": "Dark Grey",
+      "message": "Duplicate - Duplicate Domain - Range pair",
+      "status": "warning",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "product_name": "Huawei P9",
+      "domain": "Stonegrey",
+      "price": "CHF 272",
+      "image": "huwaie.jpg",
+      "range": "Silver",
+      "message": "Forks - Duplicate Domains with different Ranges",
+      "status": "danger",
       "id": 4
     },
     {
       "userId": 1,
       "product_name": "Samsung Galaxy S8",
-      "domain": "Caribbean Sea",
+      "domain": "Dark Grey",
       "price": "CHF 569",
-      "range": "Mystic Silver",
-      "message": "Valid Dictionary",
-      "status": "valid",
       "image": "samsung.jpg",
+      "range": "Stonegrey",
+      "message": "Chains - Domian and Ranges forming a chain",
+      "status": "danger",
       "id": 5
     },
     {
       "userId": 1,
       "product_name": "Apple iPhone 6s",
-      "domain": "Stonegrey",
+      "domain": "Midnight Blue",
       "price": "CHF 769",
       "image": "iphone.jpg",
-      "range": "Midnight Blue",
-      "message": "Valid Dictionary",
-      "status": "valid",
-      "id": 7
-    },
-    {
-      "userId": 1,
-      "product_name": "Apple iPhone 6s",
-      "domain": "Stonegrey",
-      "price": "CHF 769",
-      "image": "iphone.jpg",
-      "range": "Midnight Blue",
-      "message": "Duplicate - Duplicate Domain - Range pair",
-      "status": "warning",
-      "id": 8
-    },
-    {
-      "userId": 1,
-      "product_name": "Huawei P9",
-      "domain": "Mystic Silver",
-      "price": "CHF 272",
-      "image": "huwaie.jpg",
-      "range": "Black",
-      "message": "Forks - Duplicate Domains with different Ranges",
+      "range": "Caribbean Sea",
+      "message": "Cycles - Domian and Ranges forming a cycle",
       "status": "danger",
-      "id": 9
+      "id": 6
     }
   ]
 }

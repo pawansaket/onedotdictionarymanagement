@@ -20,6 +20,7 @@ class SelectMenu extends React.Component {
         onChange={this.props.handleChange}
         name={this.props.name}
         className={`custom-select custom-select-lg mb-3 ${this.props.selectMenuCustomClass}`}
+        disabled={this.props.disabledMode}
       >
         <option value={this.props.value} defaultValue>
           {this.props.value}

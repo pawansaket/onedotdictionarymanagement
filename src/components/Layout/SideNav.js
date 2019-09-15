@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Button from "../Resuable/Button";
@@ -21,11 +20,13 @@ class SideNav extends React.Component {
     }
   }
 
+  //Logout function
   logoutUser() {
     //Remove the token from localStorage
     localStorage.removeItem("token");
     this.props.history.push("/");
   }
+
   render() {
     let user = {};
     const { userDetails } = this.state;
@@ -76,11 +77,4 @@ SideNav.propTypes = {
   sideNavList: PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => ({
-  auth: state.auth.authentication
-});
-
-export default connect(
-  mapStateToProps,
-  {}
-)(withRouter(SideNav));
+export default withRouter(SideNav);

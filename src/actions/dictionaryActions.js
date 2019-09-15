@@ -191,10 +191,12 @@ export const updateDraftDictionaryList = data => dispatch => {
     headers: headers
   })
     .then(res => {
+      console.log("SOS");
       document.getElementById("modalCloseId").click();
       dispatch(fetchDraftDictionaryList(data.userId));
     })
     .catch(err => {
+      console.log(err);
       dispatch({
         type: GET_ERRORS,
         payload: err
@@ -283,7 +285,7 @@ export const createOrUpdateDictionary = validateData => dispatch => {
       const dictionary = res.data;
 
       //for the first time
-      if (dictionary.length > 0) {
+      if (dictionary.length > 1) {
         for (let i = 0; i < dictionary.length; i++) {
           if (
             dictionary[i].domain === validateData.domain &&
@@ -336,10 +338,15 @@ export const createOrUpdateDictionary = validateData => dispatch => {
           dispatch(createDictionary(validateData));
         }
       } else {
-        delete validateData.userMode;
         validateData["message"] = "Valid Dictionary";
         validateData["status"] = "valid";
-        dispatch(createDictionary(validateData));
+        if (validateData.userMode === "edit") {
+          delete validateData.userMode;
+          dispatch(updateDraftDictionaryList(validateData));
+        } else {
+          delete validateData.userMode;
+          dispatch(createDictionary(validateData));
+        }
       }
     })
     .catch(err => {

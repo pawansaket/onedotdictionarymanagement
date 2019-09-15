@@ -13,6 +13,7 @@ class InputBox extends React.Component {
           onChange={this.props.handleChange}
           name={this.props.name}
           value={this.props.value}
+          disabled={this.props.disabledMode}
         />
         {this.props.error && (
           <small id="error" class="form-text text-muted">
