@@ -1,4 +1,4 @@
-# homelike_assignment
+# Onedot Dictionary Management Service
 Start the project locally
 
 1. git clone https://github.com/pawan9124/onedotdictionarymanagement.git
