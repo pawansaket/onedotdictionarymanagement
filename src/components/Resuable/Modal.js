@@ -14,8 +14,8 @@ class Modal extends React.Component {
         aria-hidden="true"
       >
         <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
+          <div className="modal-content card">
+            <div className="modal-header background-header">
               <h5 className="modal-title" id="exampleModalLabel">
                 {this.props.title}
               </h5>
@@ -38,13 +38,13 @@ class Modal extends React.Component {
             )}
             <div className="modal-footer">
               <Button
-                buttonClass="btn btn-secondary"
+                buttonClass="btn btn-secondary btn-close  "
                 buttonLabel="Close"
                 dataDismiss="modal"
                 id="modalCloseId"
               />
               <Button
-                buttonClass="btn btn-primary"
+                buttonClass="btn btn-primary btn-create "
                 buttonLabel={this.props.buttonName}
                 onClick={this.props.handleClick}
               />

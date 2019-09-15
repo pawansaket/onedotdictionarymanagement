@@ -56,7 +56,9 @@ class SideNav extends React.Component {
               ""
             )}
           </li>
-          <li className="user-name">{user.username}</li>
+          <li className="user-name" id="username">
+            {user.username}
+          </li>
           <li>
             {" "}
             <Button

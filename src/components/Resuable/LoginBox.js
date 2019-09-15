@@ -17,6 +17,9 @@ class LoginBox extends Component {
     this.handleOnChange = this.handleOnChange.bind(this);
     this.handleOnClick = this.handleOnClick.bind(this);
   }
+  componentDidCatch(error, errorInfo) {
+    console.log("ERRR_LOGIN_BOX", error);
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth != undefined) {
@@ -61,6 +64,7 @@ class LoginBox extends Component {
             handleChange={this.handleOnChange}
             customInputBoxClass={"child-contanier-modal"}
             name="email"
+            id="email"
           />
           <InputBox
             type="password"
@@ -68,6 +72,7 @@ class LoginBox extends Component {
             handleChange={this.handleOnChange}
             customInputBoxClass={"child-contanier-modal"}
             name="password"
+            id="password"
           />
         </div>
         {this.state.isInvalid ? (

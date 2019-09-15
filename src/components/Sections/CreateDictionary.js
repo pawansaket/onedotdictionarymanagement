@@ -35,8 +35,9 @@ class CreateDictionary extends React.Component {
           />
           <Button
             buttonClass="btn-primary create-dictionary-button"
-            buttonLabel="Create Dictonary"
+            buttonLabel="Create Dictionary"
             onClick={this.handleClick}
+            id="createDictionary"
             icon={`<i class="fas fa-plus-circle"></i>`}
           />
         </div>

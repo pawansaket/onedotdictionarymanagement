@@ -13,12 +13,6 @@ export default function(state = initialState, action) {
         ...state,
         authentication: action.payload
       };
-    case SET_CURRENT_USER:
-      return {
-        ...state,
-        authentication: action.payload,
-        isAuhthenticated: action.payload.isAuhthenticated
-      };
 
     default:
       return state;
