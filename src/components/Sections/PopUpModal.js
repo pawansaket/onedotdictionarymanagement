@@ -35,6 +35,7 @@ class PopUpModal extends React.Component {
       : this.state.currentProduct;
     currentTemp = currentTemp != undefined ? currentTemp : initialData;
     currentTemp[[e.target.name]] = e.target.value;
+    console.log("currentTEmp", currentTemp);
     this.setState({
       currentProduct: currentTemp,
       useEditData: false
@@ -42,17 +43,19 @@ class PopUpModal extends React.Component {
   }
   handleClick(e) {
     e.preventDefault();
-    const data = this.state.currentProduct;
-    delete data.id;
+    const sendData = JSON.parse(JSON.stringify(this.state.currentProduct));
+    if (this.props.identity === "createDictionary") {
+      delete sendData.id;
+    }
 
-    console.log("VALIDATE DATA", data);
+    console.log("VALIDATE DATA", sendData);
     if (
-      data.product_name != undefined &&
-      data.price != undefined &&
-      data.domain != undefined &&
-      data.range != undefined
+      sendData.product_name != undefined &&
+      sendData.price != undefined &&
+      sendData.domain != undefined &&
+      sendData.range != undefined
     ) {
-      // this.props.handleButtonClick(data);
+      this.props.handleButtonClick(sendData);
     } else {
       this.setState({ validationError: true });
     }

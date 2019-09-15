@@ -122,6 +122,17 @@
       "message": "Duplicate - Duplicate Domain - Range pair",
       "status": "warning",
       "id": 8
+    },
+    {
+      "userId": 1,
+      "product_name": "Huawei P9",
+      "domain": "Mystic Silver",
+      "price": "CHF 272",
+      "image": "huwaie.jpg",
+      "range": "Black",
+      "message": "Forks - Duplicate Domains with different Ranges",
+      "status": "danger",
+      "id": 9
     }
   ]
 }

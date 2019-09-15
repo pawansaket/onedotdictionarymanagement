@@ -191,6 +191,7 @@ export const updateDraftDictionaryList = data => dispatch => {
     headers: headers
   })
     .then(res => {
+      document.getElementById("modalCloseId").click();
       dispatch(fetchDraftDictionaryList(data.userId));
     })
     .catch(err => {

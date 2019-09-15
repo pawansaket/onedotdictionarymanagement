@@ -24,7 +24,6 @@ class UpdateDraftDictionary extends React.Component {
   }
 
   handleButtonClick(data) {
-    data["id"] = 1;
     data["userMode"] = "edit";
     this.props.createOrUpdateDictionary(data);
   }
